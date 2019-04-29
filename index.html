@@ -19,17 +19,26 @@
         <![endif]-->
         <!-- Font Awesome Icons -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <!-- Handles viewport placement for scrollspy -->
+        <script>
+            const shiftWindow = () => scrollBy(0, -50);
+            window.addEventListener('hashchange', shiftWindow);
+            const load = () => {if (window.location.hash) shiftWindow();}
+        </script> 
     </head>
-    <body>
+    <body onload="load()">
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
+
+        <!-- Scroll to top -->
+        <button onclick="topFunction()" id="myBtn" class="shadow" title="Go to top">Top</button>
         
         <!-- Navbar -->
         <nav class="navbar navbar-light navbar-expand-lg fixed-top shadow-sm bg-white">
             <a href="index.html" class="navbar-brand">Social Land</a>
-            <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
-            <div id="navbarSupportedContent" class="collapse navbar-collapse">
+            <button type="button" data-toggle="collapse" data-target="#slnav" aria-controls="slnav" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
+            <div id="slnav" class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a href="#services-section" class="nav-link">Services</a></li>
                     <li class="nav-item"><a href="#portfolio-section" class="nav-link">Portfolio</a></li>
@@ -224,11 +233,29 @@
         </div>
         <!-- End Footer -->
 
-        <script src="" async defer></script>
+        <script src="App.js" type="text/javascript" async defer></script>
 
         <!-- jQuery, Popper, Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+        <script>
+            // 20px scroll intit'
+            window.onscroll = () => scrollFunction();
+
+            const scrollFunction = () => {
+                (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20)
+                ? document.getElementById("myBtn").style.display = "block"
+                : document.getElementById("myBtn").style.display = "none"
+            }
+
+            // scroll top
+            const topFunction = () => {
+                document.body.scrollTop = 0; // For Safari
+                document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+            }
+        </script>
+    
     </body>
 </html>
