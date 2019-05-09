@@ -16,6 +16,7 @@ body {
     font-size: 30px;
 }
 
+/* Back-to-Top button */
 #myBtn {
     display: none; /* Hidden by default */
     position: fixed; /* Fixed/sticky position */
@@ -34,4 +35,38 @@ body {
   
   #myBtn:hover {
     background-color: #555; /* Add a dark-grey background on hover */
+  }
+
+  .card {
+      perspective: 1000px;
+  }
+
+  .flip-card-inner {
+      position: relative;
+      width: 100%;
+      min-height: 250px;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+  }
+
+  .card.flip .flip-card-inner {
+      transform: rotateY(180deg);
+  }
+
+  .flip-card-front {
+    overflow-y: auto;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+  }
+
+  .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background-color: dodgerblue;
+    color: whitesmoke;
+    transform: rotateY(180deg);
   }
